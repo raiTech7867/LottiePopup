@@ -275,5 +275,6 @@ For v1.1.0+, publish to Maven Central:
 
 Made by RaiTech - Creators of Bachat Khata Smart Finance app
 ⭐ Please star if you find this library useful!
-[Screen_recording_20260120_023020.webm](https://github.com/user-attachments/assets/c77bfa82-f950-4aac-8c0b-39e56aaaf0fd)
-[Screen_recording_20260120_023154.webm](https://github.com/user-attachments/assets/18c34a00-2eca-4639-b0e4-76d85762ab2c)
+![Screen_recording_20260120_023154](https://github.com/user-attachments/assets/addb3f59-fd74-4264-8f67-50ad5aa5382e)
+![Screen_recording_20260120_023020](https://github.com/user-attachments/assets/a847a182-11b2-4704-99d2-6e602fda8afd)
+
