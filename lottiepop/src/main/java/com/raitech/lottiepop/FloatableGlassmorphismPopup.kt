@@ -1,4 +1,5 @@
 package com.raitech.lottiepop
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -10,7 +11,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -21,10 +21,8 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,10 +37,10 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 
 /**
- * Style configuration for Glassmorphism popup.
+ * Configurable Glassmorphism popup style.
  */
 @Immutable
-data class GlassPopupStyle(
+data class LottiePopupStyle(
     val titleTextStyle: TextStyle = TextStyle(
         color = Color.White,
         fontSize = 22.sp,
@@ -62,17 +60,23 @@ data class GlassPopupStyle(
 )
 
 /**
- * Glassmorphism Popup Dialog with optional animation slot.
- * Users can provide any @Composable via animationContent.
+ * Simple Glassmorphism popup dialog with optional Lottie animation.
+ *
+ * @param visible Show or hide popup
+ * @param titleText Popup title
+ * @param bodyText Popup message
+ * @param animationRes Optional Lottie raw resource (`R.raw.xxx`)
+ * @param style Optional custom style
+ * @param onDismiss Called when user dismisses popup
  */
 @Composable
-fun GlassPopupDialog(
+fun LottiePopup(
     visible: Boolean,
     titleText: String,
     bodyText: String,
-    style: GlassPopupStyle = GlassPopupStyle(),
-    onDismiss: () -> Unit,
-    animationContent: (@Composable () -> Unit)? = null // Slot API for custom animation
+    animationRes: Int? = null,
+    style: LottiePopupStyle = LottiePopupStyle(),
+    onDismiss: () -> Unit
 ) {
     if (!visible) return
 
@@ -102,7 +106,7 @@ fun GlassPopupDialog(
                         .background(style.dialogBackgroundColor)
                         .border(1.dp, style.borderBrush, RoundedCornerShape(style.cornerRadius))
                 ) {
-                    // Glass blur layer
+                    // Glass blur
                     Box(
                         modifier = Modifier
                             .matchParentSize()
@@ -115,8 +119,8 @@ fun GlassPopupDialog(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
+                        // Header: title + dismiss
                         Box(modifier = Modifier.fillMaxWidth()) {
-                            // Cancel button top-left
                             IconButton(
                                 onClick = onDismiss,
                                 modifier = Modifier
@@ -130,7 +134,6 @@ fun GlassPopupDialog(
                                 )
                             }
 
-                            // Title text centered
                             Text(
                                 text = titleText,
                                 modifier = Modifier.align(Alignment.Center),
@@ -141,7 +144,6 @@ fun GlassPopupDialog(
 
                         Spacer(modifier = Modifier.height(12.dp))
 
-                        // Body text
                         Text(
                             text = bodyText,
                             style = style.bodyTextStyle,
@@ -153,8 +155,15 @@ fun GlassPopupDialog(
 
                         Spacer(modifier = Modifier.height(20.dp))
 
-                        // Optional animation/content slot
-                        animationContent?.invoke()
+                        // Lottie animation if provided
+                        animationRes?.let { res ->
+                            val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(res))
+                            LottieAnimation(
+                                composition,
+                                iterations = LottieConstants.IterateForever,
+                                modifier = Modifier.size(100.dp)
+                            )
+                        }
 
                         Spacer(modifier = Modifier.height(20.dp))
                     }
@@ -163,24 +172,15 @@ fun GlassPopupDialog(
         }
     }
 }
-
-
-@Preview(showBackground = true, showSystemUi = true, backgroundColor = 0xFF8A8A8A)
+@Preview(showBackground = true, showSystemUi = true, backgroundColor = 0xFF333333)
 @Composable
-fun GlassPopupExample() {
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.mic_animation))
-
-    GlassPopupDialog(
+fun LottiePopupPreview() {
+    // Use a placeholder animation resource for preview
+    LottiePopup(
         visible = true,
-        titleText = "Listening...",
-        bodyText = "Speak something",
-        onDismiss = {},
-        animationContent = {
-            LottieAnimation(
-                composition,
-                iterations = LottieConstants.IterateForever,
-                modifier = Modifier.size(100.dp)
-            )
-        }
+        titleText = "Success!",
+        bodyText = "Your LottiePop is working 🎉",
+        animationRes = R.raw.mic_animation, // Replace with a sample Lottie raw file in your project
+        onDismiss = {}
     )
 }
