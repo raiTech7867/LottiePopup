@@ -57,5 +57,6 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation(project(":lottiepop"))
+   // implementation("com.github.raiTech7867:LottiePop:v1.0.0")
+
 }
