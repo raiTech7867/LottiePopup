@@ -1,5 +1,3 @@
-[Screen_recording_20260120_023020.webm](https://github.com/user-attachments/assets/c77bfa82-f950-4aac-8c0b-39e56aaaf0fd)
-[Screen_recording_20260120_023154.webm](https://github.com/user-attachments/assets/18c34a00-2eca-4639-b0e4-76d85762ab2c)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.RaiTech/lottpop?label=Maven%20Central)](https://central.sonatype.com/artifact/com.github.RaiTech/lottpop)
 [![JitPack](https://jitpack.io/v/RaiTech/LottiePop.svg)](https://jitpack.io/#RaiTech/LottiePop)
 [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
@@ -277,3 +275,5 @@ For v1.1.0+, publish to Maven Central:
 
 Made by RaiTech - Creators of Bachat Khata Smart Finance app
 ⭐ Please star if you find this library useful!
+[Screen_recording_20260120_023020.webm](https://github.com/user-attachments/assets/c77bfa82-f950-4aac-8c0b-39e56aaaf0fd)
+[Screen_recording_20260120_023154.webm](https://github.com/user-attachments/assets/18c34a00-2eca-4639-b0e4-76d85762ab2c)
