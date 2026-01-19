@@ -42,20 +42,20 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 @Immutable
 data class LottiePopupStyle(
     val titleTextStyle: TextStyle = TextStyle(
-        color = Color.White,
+        color = Color(0xFFFFD700), // Gold-ish for attention
         fontSize = 22.sp,
         fontWeight = FontWeight.Bold
     ),
     val bodyTextStyle: TextStyle = TextStyle(
-        color = Color.White.copy(alpha = 0.95f),
-        fontSize = 15.sp
+        color = Color.White.copy(alpha = 0.9f),
+        fontSize = 16.sp
     ),
-    val screenBackgroundColor: Color = Color.Black.copy(alpha = 0.6f),
-    val dialogBackgroundColor: Color = Color.White.copy(alpha = 0.15f),
+    val screenBackgroundColor: Color = Color.White.copy(alpha = 0.6f),
+    val dialogBackgroundColor: Color =  Color.White.copy(alpha = 0.1f),
     val cornerRadius: Dp = 28.dp,
     val blurRadius: Dp = 20.dp,
-    val borderBrush: Brush = Brush.linearGradient(
-        listOf(Color.White.copy(alpha = 0.4f), Color.White.copy(alpha = 0.2f))
+    val borderBrush: Brush =Brush.linearGradient(
+        listOf(Color(0xFF6A5ACD).copy(alpha = 0.4f), Color(0xFF00BFFF).copy(alpha = 0.3f))
     )
 )
 
@@ -76,6 +76,7 @@ fun LottiePopup(
     bodyText: String,
     animationRes: Int? = null,
     style: LottiePopupStyle = LottiePopupStyle(),
+    lottieModifier: Modifier = Modifier.size(100.dp), // Default
     onDismiss: () -> Unit
 ) {
     if (!visible) return
@@ -106,7 +107,6 @@ fun LottiePopup(
                         .background(style.dialogBackgroundColor)
                         .border(1.dp, style.borderBrush, RoundedCornerShape(style.cornerRadius))
                 ) {
-                    // Glass blur
                     Box(
                         modifier = Modifier
                             .matchParentSize()
@@ -119,7 +119,6 @@ fun LottiePopup(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        // Header: title + dismiss
                         Box(modifier = Modifier.fillMaxWidth()) {
                             IconButton(
                                 onClick = onDismiss,
@@ -155,13 +154,12 @@ fun LottiePopup(
 
                         Spacer(modifier = Modifier.height(20.dp))
 
-                        // Lottie animation if provided
                         animationRes?.let { res ->
                             val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(res))
                             LottieAnimation(
                                 composition,
                                 iterations = LottieConstants.IterateForever,
-                                modifier = Modifier.size(100.dp)
+                                modifier = lottieModifier // Use user-provided modifier
                             )
                         }
 
@@ -172,6 +170,7 @@ fun LottiePopup(
         }
     }
 }
+
 @Preview(showBackground = true, showSystemUi = true, backgroundColor = 0xFF333333)
 @Composable
 fun LottiePopupPreview() {
