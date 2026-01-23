@@ -158,20 +158,6 @@ SOFTWARE.
 
 ---
 
-# CHANGELOG
-
-## [1.0.0] - 2026-01-20
-
-### Added
-- Initial release with Glassmorphism popup
-- Lottie animation support
-- Full `LottiePopupStyle` customization
-- Enter/exit animations with spring physics
-- Android Studio Preview compatibility
-- Responsive phone/tablet layouts
-- Lightweight implementation (~50KB)
-- Complete API documentation
-
 ### Features
 - Modern Glasmorphism UI with backdrop blur
 - Optional Lottie animations
@@ -181,44 +167,9 @@ SOFTWARE.
 
 ---
 
-# GITHUB RELEASE CHECKLIST
+## Topics
 
-## Pre-Release (v1.0.0)
-
-- [x] Update version in build.gradle.kts to 1.0.0
-- [x] Add comprehensive README.md with badges
-- [x] Create LICENSE file (MIT)
-- [x] Create CHANGELOG.md
-- [x] Test on API 24+ emulator & real device
-- [x] Verify Preview compatibility in Android Studio
-- [x] Code review & cleanup
-- [x] Add KDoc comments to all public APIs
-- [x] Test with different screen sizes (phone/tablet)
-
-## Release Steps
-
-1. Commit all changes:
-   ```bash
-   git add .
-   git commit -m "Release v1.0.0: Initial Glassmorphism popup library"
-   ```
-
-2. Create Git tag:
-   ```bash
-   git tag -a v1.0.0 -m "LottiePop v1.0.0 - Modern Glassmorphism popup with Lottie"
-   git push origin main
-   git push origin --tags
-   ```
-
-3. Create GitHub Release:
-   - Go to Releases tab
-   - Click "Draft a new release"
-   - Tag: v1.0.0
-   - Title: "LottiePop v1.0.0 - Glassmorphism Popup Library"
-   - Description: Copy from CHANGELOG.md
-   - Attach: README.md, LICENSE, build artifacts
-
-4. Add GitHub Topics:
+. Topics:
    - jetpack-compose
    - android
    - kotlin
@@ -230,38 +181,7 @@ SOFTWARE.
    - dialog
    - ui-animation
 
-## Post-Release
-
-- [ ] Monitor GitHub Issues & Discussions
-- [ ] Create GitHub Pages for documentation
-- [ ] Submit to Android Arsenal
-- [ ] Share on Twitter/LinkedIn with demo GIF
-- [ ] Post on Reddit r/androiddev
-- [ ] Update to Maven Central for next release
-- [ ] Plan v1.1.0 features based on feedback
-
 ---
-
-# PRODUCTION DEPLOYMENT NOTES
-
-## JitPack Setup
-- Already working at: https://jitpack.io/#RaiTech/LottiePop
-- Automatic builds on tag push
-- Artifact: com.github.RaiTech:LottiePop:1.0.0
-
-## Future: Maven Central Migration
-
-For v1.1.0+, publish to Maven Central:
-1. Register at Sonatype OSSRH
-2. GPG sign releases
-3. Use Gradle plugin: `gradle-nexus-publish-plugin`
-4. Artifact: `com.github.raitech:lottpop:1.1.0`
-
-## API Stability
-
-- v1.0.0: Stable release
-- Breaking changes (if any) reserved for v2.0.0
-- Semantic versioning: MAJOR.MINOR.PATCH
 
 ## Performance Metrics
 
