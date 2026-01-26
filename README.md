@@ -1,7 +1,8 @@
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.RaiTech/lottpop?label=Maven%20Central)](https://central.sonatype.com/artifact/com.github.RaiTech/lottpop)
-[![JitPack](https://jitpack.io/v/RaiTech/LottiePop.svg)](https://jitpack.io/#RaiTech/LottiePop)
+[![JitPack](https://img.shields.io/badge/JitPack-1.1.1-blue?style=for-the-badge)](https://jitpack.io/#raiTech7867/LottiePopup/1.1.1)
 [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
-[![Compose](https://img.shields.io/badge/Jetpack_Compose-1.6+-orange.svg)](https://developer.android.com/jetpack/compose)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-1.6+-orange?style=for-the-badge)](https://developer.android.com/jetpack/compose)
+
+
 
 # ✨ LottiePop
 
